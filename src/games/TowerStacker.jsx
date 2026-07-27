@@ -147,6 +147,16 @@ function TowerStacker({ onBack }) {
     inputLockUntilRef.current = Date.now() + 300
     setState(createInitialState())
   }, [])
+  const handleBack = useCallback(() => {
+    inputLockUntilRef.current = 0
+    sparkIdRef.current = 0
+    setState(createInitialState())
+    if (animationFrameRef.current) {
+      window.cancelAnimationFrame(animationFrameRef.current)
+      animationFrameRef.current = null
+    }
+    onBack()
+  }, [onBack])
 
   const dropBlock = useCallback(() => {
     if (Date.now() < inputLockUntilRef.current) {
@@ -231,7 +241,7 @@ function TowerStacker({ onBack }) {
   return (
     <section className="tower-page">
       <div className="tower-topbar">
-        <button type="button" className="tower-btn" onClick={onBack}>
+        <button type="button" className="tower-btn" onClick={handleBack}>
           ← Back
         </button>
         <p className="tower-score">Score: {score}</p>
