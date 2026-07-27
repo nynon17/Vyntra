@@ -1,0 +1,478 @@
+.car-chase-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+}
+
+.car-chase-player-shell {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 52px;
+  height: 68px;
+  transform: translate(-50%, -50%);
+  border-radius: 16px 16px 14px 14px;
+  background: linear-gradient(180deg, #bef264 0%, #84cc16 55%, #65a30d 100%);
+  border: 1px solid rgba(20, 20, 20, 0.75);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.car-chase-player-windshield {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 30px;
+  height: 15px;
+  transform: translateX(-50%) skewX(-18deg);
+  border-radius: 4px;
+  background: ghostwhite;
+  clip-path: polygon(8% 100%, 100% 100%, 86% 0%, 0% 0%);
+}
+
+.car-chase-player-spoiler {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 30px;
+  height: 4px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  background: ghostwhite;
+}
+
+.car-chase-player-vent {
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  border-radius: 2px;
+  background: black;
+}
+
+.car-chase-player-vent-left-1 {
+  left: 5px;
+  top: 24px;
+}
+
+.car-chase-player-vent-left-2 {
+  left: 5px;
+  top: 30px;
+}
+
+.car-chase-player-vent-right-1 {
+  right: 5px;
+  top: 24px;
+}
+
+.car-chase-player-vent-right-2 {
+  right: 5px;
+  top: 30px;
+}
+
+.car-chase-player-wheel {
+  position: absolute;
+  width: 7px;
+  height: 11px;
+  border-radius: 4px;
+  background: black;
+}
+
+.car-chase-player-wheel-front-left {
+  left: -5px;
+  top: 14px;
+}
+
+.car-chase-player-wheel-front-right {
+  right: -5px;
+  top: 14px;
+}
+
+.car-chase-player-wheel-rear-left {
+  left: -5px;
+  bottom: 14px;
+}
+
+.car-chase-player-wheel-rear-right {
+  right: -5px;
+  bottom: 14px;
+}
+
+.car-chase-topbar {
+  width: min(920px, 94vw);
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.car-chase-start {
+  width: min(920px, 94vw);
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.car-chase-start h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+}
+
+.car-chase-difficulties {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.car-chase-active {
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.car-chase-game-wrap {
+  width: min(920px, 94vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.car-chase-timer {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: rgba(0, 0, 0, 0.36);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 7px 14px;
+}
+
+.car-chase-road {
+  width: min(520px, 92vw);
+  height: min(74vh, 820px);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #252525 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.car-chase-siren-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.car-chase-siren-overlay-blue {
+  background: rgba(0, 0, 255, 0.08);
+}
+
+.car-chase-siren-overlay-red {
+  background: rgba(255, 0, 0, 0.08);
+}
+
+.car-chase-difficulty-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 25;
+  display: flex;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.car-chase-divider {
+  position: absolute;
+  top: 0;
+  width: 0.9%;
+  min-width: 3px;
+  max-width: 8px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95) 0 18px,
+    rgba(255, 255, 255, 0) 18px 44px
+  );
+  opacity: 0.9;
+}
+
+.car-chase-player,
+.car-chase-traffic-car {
+  position: absolute;
+  border-radius: 9px;
+}
+
+.car-chase-player {
+  width: 44px;
+  height: 74px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: left 170ms ease, background-color 120ms ease, filter 120ms ease, transform 120ms ease;
+  z-index: 5;
+  overflow: visible;
+}
+
+.car-chase-player-flash {
+  filter: brightness(1.18) saturate(0.95);
+}
+
+.car-chase-traffic-car {
+  width: 46px;
+  height: 70px;
+  background: var(--car-base, #ef4444);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  z-index: 4;
+  overflow: visible;
+}
+
+.car-chase-police {
+  position: absolute;
+  width: 54px;
+  height: 78px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #e2e8f0 0% 36%, #2563eb 36% 64%, #e2e8f0 64% 100%);
+  border: 1px solid rgba(15, 23, 42, 0.35);
+  z-index: 3;
+  overflow: visible;
+  transition: left 170ms ease;
+}
+
+.car-chase-car-roof {
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  width: 68%;
+  height: 35%;
+  transform: translateX(-50%);
+  border-radius: 6px;
+  background: var(--roof-color, color-mix(in srgb, var(--car-base, #0ea5e9) 75%, white 25%));
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.car-chase-player .car-chase-car-roof {
+  --car-base: #0284c7;
+}
+
+.car-chase-police .car-chase-car-roof {
+  --car-base: #2563eb;
+}
+
+.car-chase-car-windshield {
+  position: absolute;
+  left: 50%;
+  width: 32%;
+  height: 10%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  background: var(--detail-color, rgba(225, 244, 255, 0.9));
+  border: 1px solid rgba(15, 23, 42, 0.22);
+}
+
+.car-chase-car-windshield-front {
+  top: 8%;
+}
+
+.car-chase-car-windshield-rear {
+  bottom: 8%;
+}
+
+.car-chase-car-mirror {
+  position: absolute;
+  top: 42%;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--detail-color, rgba(240, 248, 255, 0.9));
+}
+
+.car-chase-car-mirror-left {
+  left: -3px;
+}
+
+.car-chase-car-mirror-right {
+  right: -3px;
+}
+
+.car-chase-police-lights {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 20px;
+  display: flex;
+  justify-content: space-between;
+  transform: translateX(-50%);
+}
+
+.car-chase-police-light {
+  width: 8px;
+  height: 5px;
+  border-radius: 2px;
+}
+
+.car-chase-police-light-red {
+  background: #ef4444;
+  animation: car-chase-police-light-red 0.4s steps(1, end) infinite;
+}
+
+.car-chase-police-light-blue {
+  background: #2563eb;
+  animation: car-chase-police-light-blue 0.4s steps(1, end) infinite;
+}
+
+.car-chase-police-label {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #0f172a;
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+}
+
+.car-chase-player-lane-shift-left {
+  filter: blur(2px);
+  transform: translate(-50%, -50%) skewX(5deg);
+}
+
+.car-chase-player-lane-shift-right {
+  filter: blur(2px);
+  transform: translate(-50%, -50%) skewX(-5deg);
+}
+
+.car-chase-speed-lines {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 72px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.car-chase-speed-lines-from-left {
+  margin-left: -52px;
+}
+
+.car-chase-speed-lines-from-right {
+  margin-left: 6px;
+}
+
+.car-chase-speed-line {
+  position: absolute;
+  height: 2px;
+  background: rgba(226, 232, 240, 0.9);
+  border-radius: 999px;
+  animation: car-chase-speed-line 0.2s ease-out forwards;
+}
+
+.car-chase-speed-line-1 {
+  top: 8px;
+  width: 30px;
+}
+
+.car-chase-speed-line-2 {
+  top: 24px;
+  width: 40px;
+}
+
+.car-chase-speed-line-3 {
+  top: 40px;
+  width: 34px;
+}
+
+.car-chase-speed-line-4 {
+  top: 56px;
+  width: 26px;
+}
+
+.car-chase-speed-lines-from-left .car-chase-speed-line {
+  left: 0;
+  transform-origin: left center;
+}
+
+.car-chase-speed-lines-from-right .car-chase-speed-line {
+  right: 0;
+  transform-origin: right center;
+}
+
+@keyframes car-chase-police-light-red {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes car-chase-police-light-blue {
+  0%, 49% {
+    opacity: 0.25;
+  }
+  50%, 100% {
+    opacity: 1;
+  }
+}
+
+@keyframes car-chase-speed-line {
+  0% {
+    opacity: 0.9;
+    transform: translateX(0) scaleX(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px) scaleX(1.15);
+  }
+}
+
+.car-chase-speed-lines-from-right .car-chase-speed-line {
+  animation-name: car-chase-speed-line-right;
+}
+
+@keyframes car-chase-speed-line-right {
+  0% {
+    opacity: 0.9;
+    transform: translateX(0) scaleX(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-20px) scaleX(1.15);
+  }
+}
+
+.car-chase-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  z-index: 20;
+}
+
+.car-chase-overlay h3,
+.car-chase-overlay p {
+  margin: 0;
+}
+
+.car-chase-start-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
