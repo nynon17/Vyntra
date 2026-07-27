@@ -181,8 +181,8 @@ function TowerStacker({ onBack }) {
         if (!current.gameOver) {
           let nextX = current.moving.x + current.moving.direction * current.moving.speed
           let nextDirection = current.moving.direction
-          if (nextX <= -current.moving.width) {
-            nextX = -current.moving.width
+          if (nextX <= 0) {
+            nextX = 0
             nextDirection = 1
           } else if (nextX + current.moving.width >= BOARD_WIDTH) {
             nextX = BOARD_WIDTH - current.moving.width
