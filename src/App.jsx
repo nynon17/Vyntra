@@ -12,13 +12,7 @@ function App() {
     { title: 'Tower Stacker', emoji: '🧱', description: 'Stack perfectly to climb levels.' },
     { title: 'Minesweeper', emoji: '💣', description: 'Classic mine-clearing puzzle.' },
     { title: 'Car Chase', emoji: '🚗', description: 'Endless highway pursuit challenge.' },
-    { title: 'Neon Overdrive', emoji: '🏎️', description: 'Arcade racing challenge.' },
-    { title: 'Quiet Hollow', emoji: '🌙', description: 'Atmospheric puzzle adventure.' },
-    { title: 'Iron Vanguard', emoji: '⚔️', description: 'Tactical combat missions.' },
-    { title: "Aurora's End", emoji: '❄️', description: 'Survive a frozen frontier.' },
-    { title: 'Pixel Foundry', emoji: '🛠️', description: 'Build and automate worlds.' },
-    { title: 'Deep Signal', emoji: '📡', description: 'Decode mysterious transmissions.' },
-    { title: 'Last Ember', emoji: '🔥', description: 'Defend the final sanctuary.' },
+
   ]
   const filteredGames = games.filter((game) =>
     game.title.toLowerCase().includes(query.trim().toLowerCase()),
